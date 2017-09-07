@@ -1,8 +1,8 @@
 {
-  "name": "deko-details",
+  "name": "deko-deks",
   "version": "1.0.0",
   "description": "",
-  "main": "deko-details.html",
+  "main": "deko-deks.html",
   "keywords": [
     "polymer",
     "web-components"
