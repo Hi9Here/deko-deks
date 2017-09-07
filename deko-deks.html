@@ -13,6 +13,28 @@
 </dom-module>
 <script>
   Polymer({
-    is: "deko-deks",
+    is: "deko-deks",,
+    properties:{
+      ref: {
+        observer:"setRef",
+      },
+      dek: {
+        notify:true,
+      },
+      route:{
+        notify:true,
+      },
+    },
+    setRef: function(deks) {
+      var dek
+      if (this.routeData.data) {
+        dek = this.routeData.data
+      } else {
+        dek = "Home"
+      }
+      if (deks) {
+        this.dek = {ref: deks.doc(dek)}
+      }
+    },
   })
 </script>
