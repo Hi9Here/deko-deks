@@ -29,8 +29,7 @@
     setRef: function(deks, dek) {
       if (!dek) {
         this.routeData.data = "Home"
-      }
-      if (deks) {
+      } else if (deks) {
         return {ref: deks.doc(dek)}
       }
     },
