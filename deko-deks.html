@@ -19,21 +19,19 @@
         observer:"setRef",
       },
       dek: {
-        notify:true,
+        notify: true,
+        computed: "setRef(ref,routeData.data)",
       },
       route:{
-        notify:true,
+        notify: true,
       },
     },
-    setRef: function(deks) {
-      var dek
-      if (this.routeData.data) {
-        dek = this.routeData.data
-      } else {
+    setRef: function(deks, dek) {
+      if (!dek) {
         dek = "Home"
       }
       if (deks) {
-        this.dek = {ref: deks.doc(dek)}
+        return {ref: deks.doc(dek)}
       }
     },
   })
