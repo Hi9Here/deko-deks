@@ -8,6 +8,8 @@
   <template>
     <style>:host {display:inline-block;color:#666}</style>
     <h2>Pick/Add deks here</h2>
+    <app-route route="{{route}}" pattern="/:data" data="{{routeData}}" tail="{{tail}}"></app-route>
+    picking [[routeData.data]]
   </template>
 </dom-module>
 <script>
