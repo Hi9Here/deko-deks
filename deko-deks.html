@@ -20,7 +20,7 @@
       },
       dek: {
         notify: true,
-        computed: "setRef(ref,routeData.data)",
+        computed: "setRef(ref, routeData.data)",
       },
       route:{
         notify: true,
@@ -28,7 +28,7 @@
     },
     setRef: function(deks, dek) {
       if (!dek) {
-        this.routeData.data = "Home"
+        this.set("routeData", {data:"Home"})
       } else if (deks) {
         return {ref: deks.doc(dek)}
       }
