@@ -17,6 +17,9 @@
   Polymer({
     is: "deko-deks",
     properties:{
+      routeData:{
+        observer: "setDefaultDek"
+      },
       ref: {
       },
       dek: {
@@ -27,10 +30,13 @@
         notify: true,
       },
     },
+    setDefaultDek: function(routeData) {
+      if (!routeData.data) {
+        this.set("routeData", {data:"Home"}) 
+      }
+    },
     setRef: function(deks, dek) {
-      if (!dek) {
-        this.set("routeData", {data:"Home"})
-      } else if (deks) {
+      if (deks) {
         return {ref: deks.doc(dek)}
       }
     },
