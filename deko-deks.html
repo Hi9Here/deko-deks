@@ -64,7 +64,7 @@
     },
     setRef: function(deks, dek) {
       if (deks && dek) {
-        deks.doc(dek).set({name:dek}).than(function(e){
+        deks.doc(dek).set({name:dek}).then(function(e){
           console.log(e)
         }).catch(function(e){
           console.log(e)
