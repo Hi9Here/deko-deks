@@ -46,7 +46,7 @@
         if (this.unsubscribe) {
           this.unsubscribe()
         }
-        this.unsubscribe = deks.docs().onSnapshot(function(docs) {
+        this.unsubscribe = deks.onSnapshot(function(docs) {
           var deks = []
         
           docs.forEach(function(doc) {
