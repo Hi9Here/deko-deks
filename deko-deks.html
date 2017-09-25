@@ -46,7 +46,7 @@
         if (this.unsubscribe) {
           this.unsubscribe()
         }
-        this.unsubscribe = deks.onSnapshot(function(docs) {
+        this.unsubscribe = deks.docs().onSnapshot(function(docs) {
           var deks = []
         
           docs.forEach(function(doc) {
@@ -64,6 +64,11 @@
     },
     setRef: function(deks, dek) {
       if (deks && dek) {
+        deks.doc(dek).set({name:dek}).than(function(e){
+          console.log(e)
+        }).catch(function(e){
+          console.log(e)
+        })
         return {ref: deks.doc(dek)}
       }
     },
