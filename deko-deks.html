@@ -11,6 +11,9 @@
     picking [[routeData.data]]
     <hr>
     [[dek.id]]    
+    <template is="dom-repeat" items="[[deks]]">
+      <a href="[[item]]">[[item]]</a>
+    </template>
   </template>
 </dom-module>
 <script>
@@ -29,6 +32,27 @@
       route:{
         notify: true,
       },
+      _getDeks: {
+        computed: "setDeks(deks)",
+      },
+      deks:{
+        value: []
+      },
+    },
+    setDeks: function(deks){
+      var that = this
+      
+      if (this.unsubscribe) {
+        this.unsubscribe()
+      }
+      this.unsubscribe = deks.onSnapshot(function(docs) {
+        var deks = []
+        
+        docs.forEach(function(doc) {
+          console.log(doc.id, " => ", doc.data());
+          deks.push(doc.id)  
+        });
+      })
     },
     setDefaultDek: function(routeData) {
       if (!routeData.data) {
