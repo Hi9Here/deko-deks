@@ -51,8 +51,9 @@
         
           docs.forEach(function(doc) {
             console.log(doc.id, " => ", doc.data());
-            deks.push(doc.id)  
+            deks.push(doc.id)
           })
+          that.set("deks",deks)
         })
       }
     },
