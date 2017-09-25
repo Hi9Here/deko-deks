@@ -47,12 +47,10 @@
           this.unsubscribe()
         }
         this.unsubscribe = deks.onSnapshot(function(docs) {
-          var deks = []
-        
+          that.set("deks",[])
           docs.forEach(function(doc) {
             console.log(doc.id, " => ", doc.data());
-            deks.push(doc.id)
-            that.set("deks",deks)
+            that.push("deks", doc.id)
           })
         })
       }
