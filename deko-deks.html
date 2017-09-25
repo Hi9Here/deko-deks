@@ -40,19 +40,21 @@
       },
     },
     setDeks: function(deks){
-      var that = this
-      
-      if (this.unsubscribe) {
-        this.unsubscribe()
-      }
-      this.unsubscribe = deks.onSnapshot(function(docs) {
-        var deks = []
+      if (deks) {
+         var that = this
         
-        docs.forEach(function(doc) {
-          console.log(doc.id, " => ", doc.data());
-          deks.push(doc.id)  
-        });
-      })
+        if (this.unsubscribe) {
+          this.unsubscribe()
+        }
+        this.unsubscribe = deks.onSnapshot(function(docs) {
+          var deks = []
+        
+          docs.forEach(function(doc) {
+            console.log(doc.id, " => ", doc.data());
+            deks.push(doc.id)  
+          })
+        })
+      }
     },
     setDefaultDek: function(routeData) {
       if (!routeData.data) {
